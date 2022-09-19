@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  app:
+    container_name: mvc_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+  db:
+    container_name: mssql-2019
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+      - "1433:1433"
+    environment:
+        SA_PASSWORD: "Sql.1234"
+        ACCEPT_EULA: "Y"
+    volumes:
+      - Docker:/var/lib/mssql/data
+
+volumes:
+  Docker: 
