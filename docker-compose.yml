@@ -11,12 +11,9 @@ services:
       - db
   db:
     container_name: mssql-2019
-    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    build: ./Docker
     ports:
       - "1433:1433"
-    environment:
-        SA_PASSWORD: "Sql.1234"
-        ACCEPT_EULA: "Y"
     volumes:
       - Docker:/var/lib/mssql/data
 

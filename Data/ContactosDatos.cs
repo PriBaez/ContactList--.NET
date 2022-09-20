@@ -73,7 +73,6 @@ namespace MVC_Project.Data
                 {
                     conection.Open();
 
-                            Console.WriteLine("Conexion exitosa");
 
                     SqlCommand cmd = new SqlCommand("sp_guardar", conection);
                     cmd.Parameters.AddWithValue("Nombre", ocontacto.Nombre);
